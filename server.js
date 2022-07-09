@@ -13,4 +13,8 @@ app.get('/login', (req, res)=> {
 app.get('/register', (req, res)=> {
   res.render('register.ejs', {numb:'5'})
 })
+
+app.post('/register', (req, res) => {
+  
+})
 app.listen(3000)
