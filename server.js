@@ -5,6 +5,9 @@ const passport = required('passport')
 const users = []
 const bcrypt = require('bcrypt')
 const = initializePassport = require('./passport-config')
+initializePassport( passport,
+  email => user.find(user => user.email ===email)
+})
 
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false}))
