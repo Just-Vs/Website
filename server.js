@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 const express = require('express')
 const app = express()
 const bcrypt = require('bcrypt')
@@ -13,7 +16,7 @@ initializePassport(
   id => users.find(user => user.id === id)
 )
 
-const users = []
+const users = [{"id":"1659040347600","name":"adam","email":"adam@w","password":"$2b$10$ercnNc5kITf1x1qw/PfWo.52pyV/eVGY3wbzHKyR5bhBUgjqdCO0."}]
 
 app.set('view-engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
@@ -54,6 +57,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
       email: req.body.email,
       password: hashedPassword
     })
+    console.log(users)
     res.redirect('/login')
   } catch {
     res.redirect('/register')
